@@ -1,23 +1,15 @@
-#if	!defined(AFX_SQLITEHELPER_H__59F8C44E_0D98_4422_AEB1_2FD927EE8902__INCLUDED_)
-#define AFX_SQLITEHELPER_H__59F8C44E_0D98_4422_AEB1_2FD927EE8902__INCLUDED_
-#endif // !defined(AFX_SQLITEHELPER_H__59F8C44E_0D98_4422_AEB1_2FD927EE8902__INCLUDED_)</windows.h>
-#if _MSC_VER > 1000
-#pragma once
-#endif // _MSC_VER > 1000
+ï»¿#pragma once
 #include "sqlite3.h"
 #include <Windows.h>
 class MySqlite3
 {
 public:
-	MySqlite3(); // ¹¹Ôìº¯Êı
-	virtual ~MySqlite3(); //Îö¹¹º¯Êı
+	MySqlite3(); // æ„é€ å‡½æ•°
+	virtual ~MySqlite3(); //ææ„å‡½æ•°
 	sqlite3* db = NULL;
-	bool sqlOpen(char* path); //´ò¿ªÊı¾İ¿â
-	bool sqlClose(sqlite3* db); //¹Ø±ÕÊı¾İ¿â
-	char** rawQuery(char* sql, int *row, int* column, char** result); //²éÑ¯Êı¾İ¿â
-	bool sqlExec(char* sql); //ÔËĞĞsqlÓï¾ä
+	bool sqlOpen(char* path); //æ‰“å¼€æ•°æ®åº“
+	bool sqlClose(sqlite3* db); //å…³é—­æ•°æ®åº“
+	char** rawQuery(char* sql, int *row, int* column, char** result); //æŸ¥è¯¢æ•°æ®åº“
+	bool sqlExec(char* sql); //è¿è¡Œsqlè¯­å¥
 
-private:
-	;
 };
-
