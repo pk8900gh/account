@@ -1,10 +1,10 @@
 #pragma once
-#if _MSC_VER >= 1600
-#pragma execution_character_set("utf-8")// 该指令仅支持VS环境
-#endif
 #include <QtWidgets/QMainWindow>
 #include "ui_mysoft.h"
 #include "mysqlite3.h"
+#include <Windows.h>
+#include <string>
+using namespace std;
 
 class MySoft : public QMainWindow ,public MySqlite3
 {

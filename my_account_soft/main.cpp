@@ -1,9 +1,9 @@
 #include "mysoft.h"
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
-#include "qtextcodec.h"
+//#include "qtextcodec.h"
 //#include <QTextcodec>
-
+string UTF8ToGB(const char* str);
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -13,9 +13,12 @@ int main(int argc, char *argv[])
     //QTextCodec* codec = QTextCodec::codecForName("UTF - 8");
 	//QTextCodec::setCodecForLocale(codec);
     MySoft  w;
-    w.sqlOpen(path);
+    if( w.sqlOpen(path))
+        w.ui.statusBar->showMessage(QString::fromLocal8Bit("数据库正常启动"));
     w.show();
     w.ui.textEdit01->setText(QString::fromLocal8Bit("我是中国人"));  //QStringLiteral("学生事务管理系统")   QString::fromLocal8Bit("学生事务管理系统"))
-    w.ui.statusBar->showMessage(QString::fromLocal8Bit("程序已经启动"));
+    w.ui.textEdit01->setText(QString("\347\241\256\345\256\232"));
+    
+    
     return a.exec();
 }

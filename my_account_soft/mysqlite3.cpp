@@ -23,10 +23,11 @@ char** MySqlite3::rawQuery(char* sql, int* row, int* column, char** result)
 }
 bool MySqlite3::sqlOpen(char* path)
 {
-	int last = sqlite3_open(path, &db);
+	int last = sqlite3_open16(path, &db);
 	if (SQLITE_OK != last)
+	{
 		printf("error");
-	else
-		printf("ok");
+		return false;
+	}	
 	return true;
 }
