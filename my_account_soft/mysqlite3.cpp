@@ -4,6 +4,10 @@
 MySqlite3::MySqlite3()
 {
 }
+MySqlite3::MySqlite3(char * path)
+{
+	sqlOpen(path);
+}
 MySqlite3::~MySqlite3()
 {
 }
@@ -20,9 +24,9 @@ char** MySqlite3::rawQuery(char* sql, int* row, int* column, char** result)
 bool MySqlite3::sqlOpen(char* path)
 {
 	int last = sqlite3_open(path, &db);
-	if (SQLITE_OK != 0)
-	{
+	if (SQLITE_OK != last)
 		printf("error");
-	}
+	else
+		printf("ok");
 	return true;
 }

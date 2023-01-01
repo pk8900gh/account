@@ -5,6 +5,7 @@ class MySqlite3
 {
 public:
 	MySqlite3(); // 构造函数
+	MySqlite3(char* path);
 	virtual ~MySqlite3(); //析构函数
 	sqlite3* db = NULL;
 	bool sqlOpen(char* path); //打开数据库
