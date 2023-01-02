@@ -12,7 +12,7 @@ class MySoft : public QMainWindow ,public MySqlite3
 
 public:
     int* db;
+    Ui::MySoftClass ui;
     MySoft(QWidget *parent = nullptr);
     ~MySoft();
-    Ui::MySoftClass ui;
 };

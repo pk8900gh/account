@@ -1,23 +1,29 @@
-#include "mysoft.h"
+ï»¿#include "mysoft.h"
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/Qwidget>
+
 //#include "qtextcodec.h"
 //#include <QTextcodec>
+
 string UTF8ToGB(const char* str);
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    char  path[] = "B:\\C++ÎÄµµ\\account\\my_account_soft\\database\\data.sqlite3";
-    //QWidget * parent=new QWidget();
-	//½â¾öÂÒÂëÎÊÌâ
+    char  path[] = "B:\\C++æ–‡æ¡£\\account\\my_account_soft\\database\\data.sqlite3";
+    string s1 = "12345æ˜¯ä¸ªæ•°å­—";
+    QWidget * parent=new QWidget();
+	//è§£å†³ä¹±ç é—®é¢˜
     //QTextCodec* codec = QTextCodec::codecForName("UTF - 8");
 	//QTextCodec::setCodecForLocale(codec);
-    MySoft  w;
-    if( w.sqlOpen(path))
-        w.ui.statusBar->showMessage(QString::fromLocal8Bit("Êý¾Ý¿âÕý³£Æô¶¯"));
+    MySoft  w(parent);
+    if (w.sqlOpen(path)) {
+        w.ui.statusBar->showMessage(QString("æ•°æ®åº“æ­£å¸¸å¯åŠ¨"));
+    }
     w.show();
-    w.ui.textEdit01->setText(QString::fromLocal8Bit("ÎÒÊÇÖÐ¹úÈË"));  //QStringLiteral("Ñ§ÉúÊÂÎñ¹ÜÀíÏµÍ³")   QString::fromLocal8Bit("Ñ§ÉúÊÂÎñ¹ÜÀíÏµÍ³"))
-    w.ui.textEdit01->setText(QString("\347\241\256\345\256\232"));
+    w.ui.textEdit01->setText(QString("æˆ‘æ˜¯ä¸­å›½äºº"));  //QStringLiteral("å­¦ç”Ÿäº‹åŠ¡ç®¡ç†ç³»ç»Ÿ")   QString::fromLocal8Bit("å­¦ç”Ÿäº‹åŠ¡ç®¡ç†ç³»ç»Ÿ"))
+    w.ui.textEdit01->append(QString("\347\241\256\345\256\232"));
+    w.ui.textEdit01->append(QString::fromStdString(s1));
     
     
     return a.exec();

@@ -3,11 +3,9 @@
 
 MySqlite3::MySqlite3()
 {
+	db = 0;
 }
-MySqlite3::MySqlite3(char * path)
-{
-	sqlOpen(path);
-}
+
 MySqlite3::~MySqlite3()
 {
 }

@@ -5,11 +5,11 @@
 
 
 MySoft::MySoft(QWidget *parent)
-    : QMainWindow(parent)
-
+    : QMainWindow(parent),MySqlite3()
 {
     ui.setupUi(this);
 }
 
 MySoft::~MySoft()
-{}
+{
+}

@@ -1,4 +1,21 @@
 <RCC>
-    <qresource prefix="MySoft">
-    </qresource>
+  <qresource prefix="ico_">
+    <file>icon/backup.png</file>
+    <file>icon/calc.png</file>
+    <file>icon/close.png</file>
+    <file>icon/custom.png</file>
+    <file>icon/dict.png</file>
+    <file>icon/dictsetting.png</file>
+    <file>icon/ji.png</file>
+    <file>icon/jizhang.png</file>
+    <file>icon/music.png</file>
+    <file>icon/pay.png</file>
+    <file>icon/print.png</file>
+    <file>icon/record.png</file>
+    <file>icon/record1.png</file>
+    <file>icon/search.png</file>
+    <file>icon/set.png</file>
+    <file>icon/dictsetting.png</file>
+    <file>icon/custom.png</file>
+  </qresource>
 </RCC>
