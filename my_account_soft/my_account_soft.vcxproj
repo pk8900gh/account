@@ -56,15 +56,15 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <IncludePath>$(QTDIR)\plugins;$(QTDIR)\include;$(QTDIR)\bin;$(ProjectDir)\sqlite3.4_lib;$(ProjectDir)\sqliet3.4;$(QTDIR)\include\QtCore5Compat;$(IncludePath)</IncludePath>
+    <IncludePath>$(QTDIR)\plugins;$(QTDIR)\include;$(QTDIR)\bin;$(QTDIR)\include\QtCore5Compat;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <IncludePath>$(ProjectDir)\sqlite3.4;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
-      <AdditionalLibraryDirectories>$(ProjectDir)\sqlite3.4_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <QtUic>
       <QtUicDir>$(ProjectDir)</QtUicDir>
@@ -105,7 +105,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="mysqlite3.cpp" />
     <QtRcc Include="mysoft.qrc" />
     <QtUic Include="mysoft.ui" />
     <QtMoc Include="mysoft.h" />
@@ -113,7 +112,6 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="mysqlite3.h" />
     <ClInclude Include="ui_mysoft.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

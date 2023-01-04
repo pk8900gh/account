@@ -18,4 +18,7 @@
     <file>icon/dictsetting.png</file>
     <file>icon/custom.png</file>
   </qresource>
+  <qresource prefix="img_">
+    <file>img/searchback.png</file>
+  </qresource>
 </RCC>

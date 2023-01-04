@@ -12,12 +12,12 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPushButton>
+#include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -30,12 +30,26 @@ public:
     QAction *m_sys_backup;
     QAction *m_sys_recover;
     QAction *m_sys_quit;
-    QAction *action_8;
-    QAction *action_9;
+    QAction *m_custom;
+    QAction *m_item_type;
+    QAction *m_new_detail;
+    QAction *m_search_detail;
+    QAction *m_modify_detail;
+    QAction *m_new_census;
+    QAction *m_modify_census;
+    QAction *m_search_census;
+    QAction *m_new_pay;
+    QAction *m_modify_pay;
+    QAction *m_search_pay;
     QWidget *centralWidget;
-    QTextEdit *textEdit01;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
+    QStackedWidget *stackedWidget;
+    QWidget *page;
+    QWidget *page_2;
+    QLabel *label;
+    QStackedWidget *stackedWidget_2;
+    QWidget *page_3;
+    QWidget *page_4;
+    QWidget *widgetSearchPanel;
     QMenuBar *menuBar;
     QMenu *m_sys;
     QMenu *m_dict;
@@ -50,8 +64,8 @@ public:
     {
         if (MySoftClass->objectName().isEmpty())
             MySoftClass->setObjectName("MySoftClass");
-        MySoftClass->resize(1113, 768);
-        MySoftClass->setStyleSheet(QString::fromUtf8("background-color: rgb(93, 93, 93);\n"
+        MySoftClass->resize(1024, 768);
+        MySoftClass->setStyleSheet(QString::fromUtf8("background-color: rgb(140, 140, 140);\n"
 "color: rgb(255, 255, 255);"));
         MySoftClass->setIconSize(QSize(36, 36));
         MySoftClass->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
@@ -62,7 +76,7 @@ public:
         if (QIcon::hasThemeIcon(iconThemeName)) {
             icon = QIcon::fromTheme(iconThemeName);
         } else {
-            icon.addFile(QString::fromUtf8(":/ico_/icon/custom.png"), QSize(), QIcon::Normal, QIcon::Off);
+            icon.addFile(QString::fromUtf8(":/ico_/icon/dictsetting.png"), QSize(), QIcon::Normal, QIcon::Off);
         }
         m_sys_user->setIcon(icon);
         m_sys_backup = new QAction(MySoftClass);
@@ -77,25 +91,78 @@ public:
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/ico_/icon/close.png"), QSize(), QIcon::Normal, QIcon::Off);
         m_sys_quit->setIcon(icon2);
-        action_8 = new QAction(MySoftClass);
-        action_8->setObjectName("action_8");
-        action_9 = new QAction(MySoftClass);
-        action_9->setObjectName("action_9");
+        m_custom = new QAction(MySoftClass);
+        m_custom->setObjectName("m_custom");
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/ico_/icon/custom.png"), QSize(), QIcon::Normal, QIcon::Off);
+        m_custom->setIcon(icon3);
+        m_item_type = new QAction(MySoftClass);
+        m_item_type->setObjectName("m_item_type");
+        m_new_detail = new QAction(MySoftClass);
+        m_new_detail->setObjectName("m_new_detail");
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8(":/ico_/icon/ji.png"), QSize(), QIcon::Normal, QIcon::Off);
+        m_new_detail->setIcon(icon4);
+        m_search_detail = new QAction(MySoftClass);
+        m_search_detail->setObjectName("m_search_detail");
+        m_modify_detail = new QAction(MySoftClass);
+        m_modify_detail->setObjectName("m_modify_detail");
+        m_new_census = new QAction(MySoftClass);
+        m_new_census->setObjectName("m_new_census");
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8(":/ico_/icon/record1.png"), QSize(), QIcon::Normal, QIcon::Off);
+        m_new_census->setIcon(icon5);
+        m_modify_census = new QAction(MySoftClass);
+        m_modify_census->setObjectName("m_modify_census");
+        m_search_census = new QAction(MySoftClass);
+        m_search_census->setObjectName("m_search_census");
+        m_new_pay = new QAction(MySoftClass);
+        m_new_pay->setObjectName("m_new_pay");
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/ico_/icon/pay.png"), QSize(), QIcon::Normal, QIcon::Off);
+        m_new_pay->setIcon(icon6);
+        m_modify_pay = new QAction(MySoftClass);
+        m_modify_pay->setObjectName("m_modify_pay");
+        m_search_pay = new QAction(MySoftClass);
+        m_search_pay->setObjectName("m_search_pay");
         centralWidget = new QWidget(MySoftClass);
         centralWidget->setObjectName("centralWidget");
-        textEdit01 = new QTextEdit(centralWidget);
-        textEdit01->setObjectName("textEdit01");
-        textEdit01->setGeometry(QRect(200, 130, 531, 201));
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(100, 80, 75, 24));
-        pushButton_2 = new QPushButton(centralWidget);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(450, 380, 75, 24));
+        stackedWidget = new QStackedWidget(centralWidget);
+        stackedWidget->setObjectName("stackedWidget");
+        stackedWidget->setGeometry(QRect(0, 70, 631, 591));
+        stackedWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(75, 75, 75);"));
+        stackedWidget->setFrameShape(QFrame::StyledPanel);
+        stackedWidget->setLineWidth(8);
+        stackedWidget->setMidLineWidth(6);
+        page = new QWidget();
+        page->setObjectName("page");
+        stackedWidget->addWidget(page);
+        page_2 = new QWidget();
+        page_2->setObjectName("page_2");
+        label = new QLabel(page_2);
+        label->setObjectName("label");
+        label->setGeometry(QRect(0, 0, 631, 31));
+        label->setAlignment(Qt::AlignCenter);
+        stackedWidget->addWidget(page_2);
+        stackedWidget_2 = new QStackedWidget(centralWidget);
+        stackedWidget_2->setObjectName("stackedWidget_2");
+        stackedWidget_2->setGeometry(QRect(629, -1, 401, 661));
+        stackedWidget_2->setStyleSheet(QString::fromUtf8("background-color: rgb(80,80, 80);"));
+        stackedWidget_2->setFrameShape(QFrame::StyledPanel);
+        page_3 = new QWidget();
+        page_3->setObjectName("page_3");
+        stackedWidget_2->addWidget(page_3);
+        page_4 = new QWidget();
+        page_4->setObjectName("page_4");
+        stackedWidget_2->addWidget(page_4);
+        widgetSearchPanel = new QWidget(centralWidget);
+        widgetSearchPanel->setObjectName("widgetSearchPanel");
+        widgetSearchPanel->setGeometry(QRect(0, 0, 631, 71));
+        widgetSearchPanel->setStyleSheet(QString::fromUtf8("background-color: rgb(65,65, 65);"));
         MySoftClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MySoftClass);
         menuBar->setObjectName("menuBar");
-        menuBar->setGeometry(QRect(0, 0, 1113, 22));
+        menuBar->setGeometry(QRect(0, 0, 1024, 22));
         menuBar->setStyleSheet(QString::fromUtf8("background-color: rgb(52, 52, 52);"));
         m_sys = new QMenu(menuBar);
         m_sys->setObjectName("m_sys");
@@ -118,6 +185,7 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(mainToolBar->sizePolicy().hasHeightForWidth());
         mainToolBar->setSizePolicy(sizePolicy);
+        mainToolBar->setStyleSheet(QString::fromUtf8("background-color: rgb(80, 80, 80);"));
         MySoftClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(MySoftClass);
         statusBar->setObjectName("statusBar");
@@ -132,17 +200,29 @@ public:
         menuBar->addAction(m_pay->menuAction());
         menuBar->addAction(m_about->menuAction());
         m_sys->addAction(m_sys_user);
+        m_sys->addSeparator();
         m_sys->addAction(m_sys_backup);
         m_sys->addAction(m_sys_recover);
         m_sys->addSeparator();
         m_sys->addAction(m_sys_quit);
-        m_dict->addAction(action_8);
-        m_dict->addAction(action_9);
+        m_dict->addAction(m_custom);
+        m_dict->addAction(m_item_type);
+        m_account->addAction(m_new_detail);
+        m_account->addAction(m_modify_detail);
+        m_account->addAction(m_search_detail);
+        m_census->addAction(m_new_census);
+        m_census->addAction(m_modify_census);
+        m_census->addAction(m_search_census);
+        m_pay->addAction(m_new_pay);
+        m_pay->addAction(m_modify_pay);
+        m_pay->addAction(m_search_pay);
         mainToolBar->addAction(m_sys_user);
         mainToolBar->addAction(m_sys_quit);
 
         retranslateUi(MySoftClass);
-        QObject::connect(pushButton, &QPushButton::clicked, MySoftClass, qOverload<>(&QMainWindow::close));
+
+        stackedWidget->setCurrentIndex(1);
+
 
         QMetaObject::connectSlotsByName(MySoftClass);
     } // setupUi
@@ -154,10 +234,18 @@ public:
         m_sys_backup->setText(QCoreApplication::translate("MySoftClass", "\345\244\207\344\273\275\346\225\260\346\215\256", nullptr));
         m_sys_recover->setText(QCoreApplication::translate("MySoftClass", "\346\201\242\345\244\215\346\225\260\346\215\256", nullptr));
         m_sys_quit->setText(QCoreApplication::translate("MySoftClass", "\351\200\200\345\207\272", nullptr));
-        action_8->setText(QCoreApplication::translate("MySoftClass", "\345\256\242\346\210\267\347\256\241\347\220\206", nullptr));
-        action_9->setText(QCoreApplication::translate("MySoftClass", "\351\241\271\347\233\256\347\261\273\345\236\213", nullptr));
-        pushButton->setText(QCoreApplication::translate("MySoftClass", "A\347\241\256\345\256\232\\12", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MySoftClass", "PushButton", nullptr));
+        m_custom->setText(QCoreApplication::translate("MySoftClass", "\345\256\242\346\210\267\347\256\241\347\220\206", nullptr));
+        m_item_type->setText(QCoreApplication::translate("MySoftClass", "\351\241\271\347\233\256\347\261\273\345\236\213", nullptr));
+        m_new_detail->setText(QCoreApplication::translate("MySoftClass", "\346\226\260\345\242\236\350\256\260\350\264\246", nullptr));
+        m_search_detail->setText(QCoreApplication::translate("MySoftClass", "\346\237\245\350\257\242", nullptr));
+        m_modify_detail->setText(QCoreApplication::translate("MySoftClass", "\344\277\256\346\224\271", nullptr));
+        m_new_census->setText(QCoreApplication::translate("MySoftClass", "\346\226\260\345\273\272\347\273\237\350\256\241\350\241\250", nullptr));
+        m_modify_census->setText(QCoreApplication::translate("MySoftClass", "\344\277\256\346\224\271\347\273\237\350\256\241\350\241\250", nullptr));
+        m_search_census->setText(QCoreApplication::translate("MySoftClass", "\346\237\245\350\257\242\347\273\237\350\256\241\350\241\250", nullptr));
+        m_new_pay->setText(QCoreApplication::translate("MySoftClass", "\346\226\260\345\273\272\347\273\223\347\256\227\350\241\250", nullptr));
+        m_modify_pay->setText(QCoreApplication::translate("MySoftClass", "\344\277\256\346\224\271\347\273\223\347\256\227\350\241\250", nullptr));
+        m_search_pay->setText(QCoreApplication::translate("MySoftClass", "\346\237\245\350\257\242\347\273\223\347\256\227\350\241\250", nullptr));
+        label->setText(QCoreApplication::translate("MySoftClass", "\345\256\242\346\210\267\347\256\241\347\220\206", nullptr));
         m_sys->setTitle(QCoreApplication::translate("MySoftClass", "\347\263\273\347\273\237", nullptr));
         m_dict->setTitle(QCoreApplication::translate("MySoftClass", "\345\255\227\345\205\270", nullptr));
         m_account->setTitle(QCoreApplication::translate("MySoftClass", "\350\256\260\350\264\246", nullptr));
