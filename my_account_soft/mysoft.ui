@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
+    <width>1029</width>
     <height>768</height>
    </rect>
   </property>
@@ -64,13 +64,16 @@ color: rgb(255, 255, 255);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(80,80, 80);</string>
+     <string notr="true">background-color: rgb(80,80, 80);
+alternate-background-color: rgb(182, 149, 112);
+border-color: rgb(143, 143, 143);
+selection-background-color: rgb(0, 0, 255);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="edit_accountPanel">
      <widget class="Line" name="line_3">
@@ -218,8 +221,27 @@ color: rgb(255, 255, 255);</string>
         <height>24</height>
        </rect>
       </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
       <property name="currentSection">
        <enum>QDateTimeEdit::DaySection</enum>
+      </property>
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+      <property name="currentSectionIndex">
+       <number>2</number>
+      </property>
+      <property name="timeSpec">
+       <enum>Qt::UTC</enum>
+      </property>
+      <property name="date">
+       <date>
+        <year>2000</year>
+        <month>1</month>
+        <day>2</day>
+       </date>
       </property>
      </widget>
      <widget class="QLabel" name="l_search_lab_18">
@@ -313,14 +335,75 @@ color: rgb(255, 255, 255);</string>
         <x>10</x>
         <y>180</y>
         <width>431</width>
-        <height>341</height>
+        <height>351</height>
        </rect>
       </property>
-      <column>
-       <property name="text">
-        <string>序号</string>
-       </property>
-      </column>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(220, 220, 220);
+gridline-color: rgb(124, 124, 124);
+color: rgb(0, 0, 0);
+alternate-background-color: rgb(255, 244, 124);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Panel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="midLineWidth">
+       <number>0</number>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>false</bool>
+      </property>
+      <property name="showGrid">
+       <bool>true</bool>
+      </property>
+      <property name="gridStyle">
+       <enum>Qt::SolidLine</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="cornerButtonEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="rowCount">
+       <number>9</number>
+      </property>
+      <attribute name="horizontalHeaderCascadingSectionResizes">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderCascadingSectionResizes">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderHighlightSections">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderStretchLastSection">
+       <bool>true</bool>
+      </attribute>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
+      <row/>
       <column>
        <property name="text">
         <string>摘要类型</string>
@@ -753,14 +836,15 @@ color: rgb(255, 255, 255);</string>
    <widget class="QWidget" name="wdgSearchPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>-10</x>
+      <x>0</x>
       <y>0</y>
-      <width>581</width>
+      <width>571</width>
       <height>111</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(65,65, 65);</string>
+     <string notr="true">background-color: rgb(65,65, 65);
+selection-background-color: rgb(0, 0, 255);</string>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
@@ -853,24 +937,8 @@ color: rgb(255, 255, 255);</string>
      </item>
      <item>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QLabel" name="l_search_lab_4">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>业务类型：</string>
-         </property>
-         <property name="buddy">
-          <cstring>search_cmb_custom</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QComboBox" name="search_cmb_itemType">
+       <item row="1" column="1">
+        <widget class="QComboBox" name="search_cmb_itemModel">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>10</horstretch>
@@ -907,8 +975,8 @@ color: rgb(255, 255, 255);</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
-        <widget class="QComboBox" name="search_cmb_itemModel">
+       <item row="2" column="1">
+        <widget class="QComboBox" name="search_cmb_itemText">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>10</horstretch>
@@ -945,8 +1013,24 @@ color: rgb(255, 255, 255);</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
-        <widget class="QComboBox" name="search_cmb_itemText">
+       <item row="0" column="0">
+        <widget class="QLabel" name="l_search_lab_4">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>业务类型：</string>
+         </property>
+         <property name="buddy">
+          <cstring>search_cmb_custom</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="search_cmb_itemType">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>10</horstretch>
@@ -1032,13 +1116,13 @@ color: rgb(255, 255, 255);</string>
        </property>
        <property name="minimumSize">
         <size>
-         <width>10</width>
+         <width>40</width>
          <height>0</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>50</width>
+         <width>60</width>
          <height>16777215</height>
         </size>
        </property>
@@ -1058,7 +1142,7 @@ color: rgb(255, 255, 255);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1024</width>
+     <width>1029</width>
      <height>22</height>
     </rect>
    </property>

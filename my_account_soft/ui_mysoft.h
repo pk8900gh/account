@@ -9,6 +9,7 @@
 #ifndef UI_MYSOFT_H
 #define UI_MYSOFT_H
 
+#include <QtCore/QDate>
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
@@ -110,12 +111,12 @@ public:
     QLabel *l_search_lab_3;
     QComboBox *serarch_cmd_user;
     QGridLayout *gridLayout_2;
+    QComboBox *search_cmb_itemModel;
+    QLabel *l_search_lab_5;
+    QComboBox *search_cmb_itemText;
+    QLabel *l_search_lab_6;
     QLabel *l_search_lab_4;
     QComboBox *search_cmb_itemType;
-    QLabel *l_search_lab_5;
-    QComboBox *search_cmb_itemModel;
-    QLabel *l_search_lab_6;
-    QComboBox *search_cmb_itemText;
     QGridLayout *gridLayout_3;
     QRadioButton *serch_radio_month;
     QRadioButton *serch_radio_year;
@@ -139,7 +140,7 @@ public:
     {
         if (MySoftClass->objectName().isEmpty())
             MySoftClass->setObjectName("MySoftClass");
-        MySoftClass->resize(1024, 768);
+        MySoftClass->resize(1029, 768);
         MySoftClass->setStyleSheet(QString::fromUtf8("background-color: rgb(140, 140, 140);\n"
 "color: rgb(255, 255, 255);"));
         MySoftClass->setIconSize(QSize(36, 36));
@@ -218,7 +219,10 @@ public:
         stackedWidget_edit = new QStackedWidget(centralWidget);
         stackedWidget_edit->setObjectName("stackedWidget_edit");
         stackedWidget_edit->setGeometry(QRect(569, -1, 461, 661));
-        stackedWidget_edit->setStyleSheet(QString::fromUtf8("background-color: rgb(80,80, 80);"));
+        stackedWidget_edit->setStyleSheet(QString::fromUtf8("background-color: rgb(80,80, 80);\n"
+"alternate-background-color: rgb(182, 149, 112);\n"
+"border-color: rgb(143, 143, 143);\n"
+"selection-background-color: rgb(0, 0, 255);"));
         stackedWidget_edit->setFrameShape(QFrame::StyledPanel);
         edit_accountPanel = new QWidget();
         edit_accountPanel->setObjectName("edit_accountPanel");
@@ -262,7 +266,12 @@ public:
         dateEdit = new QDateEdit(edit_accountPanel);
         dateEdit->setObjectName("dateEdit");
         dateEdit->setGeometry(QRect(100, 110, 111, 24));
+        dateEdit->setFocusPolicy(Qt::ClickFocus);
         dateEdit->setCurrentSection(QDateTimeEdit::DaySection);
+        dateEdit->setCalendarPopup(true);
+        dateEdit->setCurrentSectionIndex(2);
+        dateEdit->setTimeSpec(Qt::UTC);
+        dateEdit->setDate(QDate(2000, 1, 2));
         l_search_lab_18 = new QLabel(edit_accountPanel);
         l_search_lab_18->setObjectName("l_search_lab_18");
         l_search_lab_18->setGeometry(QRect(20, 110, 71, 25));
@@ -282,8 +291,8 @@ public:
         l_search_lab_20->setGeometry(QRect(220, 50, 101, 25));
         l_search_lab_20->setStyleSheet(QString::fromUtf8("color: rgb(255, 0, 0);"));
         tableWidget = new QTableWidget(edit_accountPanel);
-        if (tableWidget->columnCount() < 8)
-            tableWidget->setColumnCount(8);
+        if (tableWidget->columnCount() < 7)
+            tableWidget->setColumnCount(7);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
@@ -298,10 +307,31 @@ public:
         tableWidget->setHorizontalHeaderItem(5, __qtablewidgetitem5);
         QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(6, __qtablewidgetitem6);
-        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(7, __qtablewidgetitem7);
+        if (tableWidget->rowCount() < 9)
+            tableWidget->setRowCount(9);
         tableWidget->setObjectName("tableWidget");
-        tableWidget->setGeometry(QRect(10, 180, 431, 341));
+        tableWidget->setGeometry(QRect(10, 180, 431, 351));
+        tableWidget->setAutoFillBackground(false);
+        tableWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(220, 220, 220);\n"
+"gridline-color: rgb(124, 124, 124);\n"
+"color: rgb(0, 0, 0);\n"
+"alternate-background-color: rgb(255, 244, 124);"));
+        tableWidget->setFrameShape(QFrame::Panel);
+        tableWidget->setFrameShadow(QFrame::Plain);
+        tableWidget->setLineWidth(0);
+        tableWidget->setMidLineWidth(0);
+        tableWidget->setAlternatingRowColors(false);
+        tableWidget->setShowGrid(true);
+        tableWidget->setGridStyle(Qt::SolidLine);
+        tableWidget->setSortingEnabled(true);
+        tableWidget->setCornerButtonEnabled(true);
+        tableWidget->setRowCount(9);
+        tableWidget->horizontalHeader()->setCascadingSectionResizes(false);
+        tableWidget->verticalHeader()->setVisible(true);
+        tableWidget->verticalHeader()->setCascadingSectionResizes(false);
+        tableWidget->verticalHeader()->setHighlightSections(true);
+        tableWidget->verticalHeader()->setProperty("showSortIndicator", QVariant(true));
+        tableWidget->verticalHeader()->setStretchLastSection(true);
         pushButton = new QPushButton(edit_accountPanel);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(220, 540, 93, 29));
@@ -403,8 +433,9 @@ public:
         stackedWidget_edit->addWidget(edit_customPanel);
         wdgSearchPanel = new QWidget(centralWidget);
         wdgSearchPanel->setObjectName("wdgSearchPanel");
-        wdgSearchPanel->setGeometry(QRect(-10, 0, 581, 111));
-        wdgSearchPanel->setStyleSheet(QString::fromUtf8("background-color: rgb(65,65, 65);"));
+        wdgSearchPanel->setGeometry(QRect(0, 0, 571, 111));
+        wdgSearchPanel->setStyleSheet(QString::fromUtf8("background-color: rgb(65,65, 65);\n"
+"selection-background-color: rgb(0, 0, 255);"));
         horizontalLayout = new QHBoxLayout(wdgSearchPanel);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -460,11 +491,41 @@ public:
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setSpacing(6);
         gridLayout_2->setObjectName("gridLayout_2");
-        l_search_lab_4 = new QLabel(wdgSearchPanel);
-        l_search_lab_4->setObjectName("l_search_lab_4");
+        search_cmb_itemModel = new QComboBox(wdgSearchPanel);
+        search_cmb_itemModel->setObjectName("search_cmb_itemModel");
+        sizePolicy.setHeightForWidth(search_cmb_itemModel->sizePolicy().hasHeightForWidth());
+        search_cmb_itemModel->setSizePolicy(sizePolicy);
+        search_cmb_itemModel->setMinimumSize(QSize(110, 0));
+
+        gridLayout_2->addWidget(search_cmb_itemModel, 1, 1, 1, 1);
+
+        l_search_lab_5 = new QLabel(wdgSearchPanel);
+        l_search_lab_5->setObjectName("l_search_lab_5");
         QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(l_search_lab_5->sizePolicy().hasHeightForWidth());
+        l_search_lab_5->setSizePolicy(sizePolicy2);
+
+        gridLayout_2->addWidget(l_search_lab_5, 1, 0, 1, 1);
+
+        search_cmb_itemText = new QComboBox(wdgSearchPanel);
+        search_cmb_itemText->setObjectName("search_cmb_itemText");
+        sizePolicy.setHeightForWidth(search_cmb_itemText->sizePolicy().hasHeightForWidth());
+        search_cmb_itemText->setSizePolicy(sizePolicy);
+        search_cmb_itemText->setMinimumSize(QSize(110, 0));
+
+        gridLayout_2->addWidget(search_cmb_itemText, 2, 1, 1, 1);
+
+        l_search_lab_6 = new QLabel(wdgSearchPanel);
+        l_search_lab_6->setObjectName("l_search_lab_6");
+        sizePolicy2.setHeightForWidth(l_search_lab_6->sizePolicy().hasHeightForWidth());
+        l_search_lab_6->setSizePolicy(sizePolicy2);
+
+        gridLayout_2->addWidget(l_search_lab_6, 2, 0, 1, 1);
+
+        l_search_lab_4 = new QLabel(wdgSearchPanel);
+        l_search_lab_4->setObjectName("l_search_lab_4");
         sizePolicy2.setHeightForWidth(l_search_lab_4->sizePolicy().hasHeightForWidth());
         l_search_lab_4->setSizePolicy(sizePolicy2);
 
@@ -477,36 +538,6 @@ public:
         search_cmb_itemType->setMinimumSize(QSize(110, 0));
 
         gridLayout_2->addWidget(search_cmb_itemType, 0, 1, 1, 1);
-
-        l_search_lab_5 = new QLabel(wdgSearchPanel);
-        l_search_lab_5->setObjectName("l_search_lab_5");
-        sizePolicy2.setHeightForWidth(l_search_lab_5->sizePolicy().hasHeightForWidth());
-        l_search_lab_5->setSizePolicy(sizePolicy2);
-
-        gridLayout_2->addWidget(l_search_lab_5, 1, 0, 1, 1);
-
-        search_cmb_itemModel = new QComboBox(wdgSearchPanel);
-        search_cmb_itemModel->setObjectName("search_cmb_itemModel");
-        sizePolicy.setHeightForWidth(search_cmb_itemModel->sizePolicy().hasHeightForWidth());
-        search_cmb_itemModel->setSizePolicy(sizePolicy);
-        search_cmb_itemModel->setMinimumSize(QSize(110, 0));
-
-        gridLayout_2->addWidget(search_cmb_itemModel, 1, 1, 1, 1);
-
-        l_search_lab_6 = new QLabel(wdgSearchPanel);
-        l_search_lab_6->setObjectName("l_search_lab_6");
-        sizePolicy2.setHeightForWidth(l_search_lab_6->sizePolicy().hasHeightForWidth());
-        l_search_lab_6->setSizePolicy(sizePolicy2);
-
-        gridLayout_2->addWidget(l_search_lab_6, 2, 0, 1, 1);
-
-        search_cmb_itemText = new QComboBox(wdgSearchPanel);
-        search_cmb_itemText->setObjectName("search_cmb_itemText");
-        sizePolicy.setHeightForWidth(search_cmb_itemText->sizePolicy().hasHeightForWidth());
-        search_cmb_itemText->setSizePolicy(sizePolicy);
-        search_cmb_itemText->setMinimumSize(QSize(110, 0));
-
-        gridLayout_2->addWidget(search_cmb_itemText, 2, 1, 1, 1);
 
 
         horizontalLayout->addLayout(gridLayout_2);
@@ -559,8 +590,8 @@ public:
         sizePolicy3.setVerticalStretch(0);
         sizePolicy3.setHeightForWidth(search_btn_go->sizePolicy().hasHeightForWidth());
         search_btn_go->setSizePolicy(sizePolicy3);
-        search_btn_go->setMinimumSize(QSize(10, 0));
-        search_btn_go->setMaximumSize(QSize(50, 16777215));
+        search_btn_go->setMinimumSize(QSize(40, 0));
+        search_btn_go->setMaximumSize(QSize(60, 16777215));
         search_btn_go->setLayoutDirection(Qt::LeftToRight);
 
         horizontalLayout->addWidget(search_btn_go);
@@ -568,7 +599,7 @@ public:
         MySoftClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MySoftClass);
         menuBar->setObjectName("menuBar");
-        menuBar->setGeometry(QRect(0, 0, 1024, 22));
+        menuBar->setGeometry(QRect(0, 0, 1029, 22));
         menuBar->setStyleSheet(QString::fromUtf8("background-color: rgb(52, 52, 52);"));
         m_sys = new QMenu(menuBar);
         m_sys->setObjectName("m_sys");
@@ -616,9 +647,9 @@ public:
         l_search_lab->setBuddy(search_cmb_custom);
         l_search_lab_2->setBuddy(serarch_cmd_bumeng);
         l_search_lab_3->setBuddy(serarch_cmd_user);
-        l_search_lab_4->setBuddy(search_cmb_custom);
         l_search_lab_5->setBuddy(search_cmb_custom);
         l_search_lab_6->setBuddy(search_cmb_custom);
+        l_search_lab_4->setBuddy(search_cmb_custom);
 #endif // QT_CONFIG(shortcut)
 
         menuBar->addAction(m_sys->menuAction());
@@ -650,15 +681,15 @@ public:
         retranslateUi(MySoftClass);
 
         stackedWidget->setCurrentIndex(0);
-        stackedWidget_edit->setCurrentIndex(1);
+        stackedWidget_edit->setCurrentIndex(0);
         editAc_cmb_customtype->setCurrentIndex(-1);
         editAc_cmb_customname->setCurrentIndex(-1);
         editAc_cmb_customname_2->setCurrentIndex(-1);
         editCustom_cmb_type->setCurrentIndex(-1);
         search_cmb_custom->setCurrentIndex(-1);
-        search_cmb_itemType->setCurrentIndex(-1);
         search_cmb_itemModel->setCurrentIndex(-1);
         search_cmb_itemText->setCurrentIndex(-1);
+        search_cmb_itemType->setCurrentIndex(-1);
 
 
         QMetaObject::connectSlotsByName(MySoftClass);
@@ -692,21 +723,19 @@ public:
         l_search_lab_19->setText(QCoreApplication::translate("MySoftClass", "\345\256\242\346\210\267\345\220\215\347\247\260\357\274\232", nullptr));
         l_search_lab_20->setText(QCoreApplication::translate("MySoftClass", "\347\272\242\345\255\227\344\270\272\345\277\205\345\241\253\351\241\271", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QCoreApplication::translate("MySoftClass", "\345\272\217\345\217\267", nullptr));
+        ___qtablewidgetitem->setText(QCoreApplication::translate("MySoftClass", "\346\221\230\350\246\201\347\261\273\345\236\213", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QCoreApplication::translate("MySoftClass", "\346\221\230\350\246\201\347\261\273\345\236\213", nullptr));
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("MySoftClass", "\350\247\204\346\240\274", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("MySoftClass", "\350\247\204\346\240\274", nullptr));
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("MySoftClass", "\346\221\230  \350\246\201", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("MySoftClass", "\346\221\230  \350\246\201", nullptr));
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("MySoftClass", "\345\215\225\344\275\215", nullptr));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget->horizontalHeaderItem(4);
-        ___qtablewidgetitem4->setText(QCoreApplication::translate("MySoftClass", "\345\215\225\344\275\215", nullptr));
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("MySoftClass", "\346\225\260\351\207\217", nullptr));
         QTableWidgetItem *___qtablewidgetitem5 = tableWidget->horizontalHeaderItem(5);
-        ___qtablewidgetitem5->setText(QCoreApplication::translate("MySoftClass", "\346\225\260\351\207\217", nullptr));
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("MySoftClass", "\345\215\225\344\273\267", nullptr));
         QTableWidgetItem *___qtablewidgetitem6 = tableWidget->horizontalHeaderItem(6);
-        ___qtablewidgetitem6->setText(QCoreApplication::translate("MySoftClass", "\345\215\225\344\273\267", nullptr));
-        QTableWidgetItem *___qtablewidgetitem7 = tableWidget->horizontalHeaderItem(7);
-        ___qtablewidgetitem7->setText(QCoreApplication::translate("MySoftClass", "\351\207\221\351\242\235", nullptr));
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("MySoftClass", "\351\207\221\351\242\235", nullptr));
         pushButton->setText(QCoreApplication::translate("MySoftClass", "\347\241\256\345\256\232", nullptr));
         pushButton_2->setText(QCoreApplication::translate("MySoftClass", "\345\217\226\346\266\210", nullptr));
         editCustom_lab_panelName->setText(QCoreApplication::translate("MySoftClass", "\346\226\260\345\242\236\345\256\242\346\210\267", nullptr));
@@ -728,12 +757,12 @@ public:
         search_cmb_custom->setCurrentText(QString());
         l_search_lab_2->setText(QCoreApplication::translate("MySoftClass", "\351\203\250\351\227\250\357\274\232", nullptr));
         l_search_lab_3->setText(QCoreApplication::translate("MySoftClass", "\347\273\217\346\211\213\344\272\272\357\274\232", nullptr));
+        search_cmb_itemModel->setCurrentText(QString());
+        l_search_lab_5->setText(QCoreApplication::translate("MySoftClass", "\350\247\204       \346\240\274\357\274\232", nullptr));
+        search_cmb_itemText->setCurrentText(QString());
+        l_search_lab_6->setText(QCoreApplication::translate("MySoftClass", "\346\221\230       \350\246\201\357\274\232", nullptr));
         l_search_lab_4->setText(QCoreApplication::translate("MySoftClass", "\344\270\232\345\212\241\347\261\273\345\236\213\357\274\232", nullptr));
         search_cmb_itemType->setCurrentText(QString());
-        l_search_lab_5->setText(QCoreApplication::translate("MySoftClass", "\350\247\204       \346\240\274\357\274\232", nullptr));
-        search_cmb_itemModel->setCurrentText(QString());
-        l_search_lab_6->setText(QCoreApplication::translate("MySoftClass", "\346\221\230       \350\246\201\357\274\232", nullptr));
-        search_cmb_itemText->setCurrentText(QString());
         serch_radio_month->setText(QCoreApplication::translate("MySoftClass", "\346\234\254\346\234\210", nullptr));
         serch_radio_year->setText(QCoreApplication::translate("MySoftClass", "\346\234\254\345\271\264", nullptr));
         serch_radio_all->setText(QCoreApplication::translate("MySoftClass", "\345\205\250\351\203\250", nullptr));
