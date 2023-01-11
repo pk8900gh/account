@@ -3,16 +3,16 @@
 #include "ui_mysoft.h"
 #include <Windows.h>
 #include <string>
+#include "qsqlite.h"
 
 using namespace std;
 
-class MySoft : public QMainWindow 
+class MySoft : public QMainWindow,public Qsqlite
 {
     Q_OBJECT
 
 public:
-    int* db;
     Ui::MySoftClass ui;
-    MySoft(QWidget *parent = nullptr);
+    MySoft(QString dbfile, QWidget* parent = nullptr);
     ~MySoft();
 };

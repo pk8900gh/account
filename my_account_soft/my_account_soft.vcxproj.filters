@@ -40,9 +40,15 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="qsqlite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ui_mysoft.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="qsqlite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
