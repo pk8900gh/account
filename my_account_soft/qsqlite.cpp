@@ -1,4 +1,14 @@
-ï»¿#include "qsqlite.h"
+#include "qsqlite.h"
+
+#include <QObject>
+#include <QMap>
+#include <QMessageBox>
+#include <QSettings>
+#include <QSqlError>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QDebug>
+#include <QBuffer>
 
 Qsqlite::Qsqlite(QString db)
 {
@@ -7,15 +17,15 @@ Qsqlite::Qsqlite(QString db)
 Qsqlite::~Qsqlite()
 {
 }
-bool Qsqlite::initDB() //åˆå§‹åŒ–æ•°æ®åº“ï¼Œtrue:æ­£å¸¸æ‰“å¼€ false:æ— æ³•æ‰“å¼€
+bool Qsqlite::initDB()
 {
-	// æ£€æµ‹å·²è¿æ¥çš„æ–¹å¼ - é»˜è®¤è¿æ¥å
+	// ¼ì²âÒÑÁ¬½ÓµÄ·½Ê½ - Ä¬ÈÏÁ¬½ÓÃû
 		//QSqlDatabase::contains(QSqlDatabase::defaultConnection)
 	if (QSqlDatabase::contains("qt_sql_default_connection"))
 		db = QSqlDatabase::database("qt_sql_default_connection");
 	else
 		db = QSqlDatabase::addDatabase("QSQLITE");
-	//æ£€æµ‹å·²è¿æ¥çš„æ–¹å¼ - è‡ªå®šä¹‰è¿æ¥å
+	//¼ì²âÒÑÁ¬½ÓµÄ·½Ê½ - ×Ô¶¨ÒåÁ¬½ÓÃû
 	QFileInfo qf(dbfile);
 	if (!qf.isFile())
 		return false;
@@ -26,5 +36,28 @@ bool Qsqlite::initDB() //åˆå§‹åŒ–æ•°æ®åº“ï¼Œtrue:æ­£å¸¸æ‰“å¼€ false:æ— æ³•æ‰“å
 		return false;
 	}
 	return true;
+
+}
+
+int Qsqlite::addUser(QString username, QString password, int isadmin = 0, int autologin = 0) // Ìí¼ÓÓÃ»§£¬³É¹¦·µ»Øid £¬id=-1ÎªÌí¼ÓÊ§°Ü Êı¾İ±í£ºuser 
+{
+	QSqlQuery query;
+	QString command = QString("insert into user(username,password,isadmin,autologin) values('%1','%2','%3','%4').arg(username).arg(password).arg(isadmin).arg(autologin)");
+	qDebug() << command;
+	if (query.exec(command))
+	{
+		qDebug() << "insert ok!";
+		return 1;
+	}
+	else
+	{
+		qDebug() << "insert error!";
+		return -1;
+	}
+	return 0;
+}
+
+bool Qsqlite::editUser(int id, QString username, QString password, int isadmin, int autologin)//ĞŞ¸ÄÓÃ»§ Êı¾İ±í£ºuser 
+{
 
 }
