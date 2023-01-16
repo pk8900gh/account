@@ -27,7 +27,7 @@ color: rgb(255, 255, 255);</string>
    <enum>Qt::ToolButtonTextUnderIcon</enum>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QStackedWidget" name="stackedWidget">
+   <widget class="QStackedWidget" name="stackedWidget_disp">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -49,10 +49,48 @@ color: rgb(255, 255, 255);</string>
      <number>6</number>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="disp_customPanel"/>
-    <widget class="QWidget" name="page_2"/>
+    <widget class="QWidget" name="disp_accountPanel">
+     <widget class="QTableView" name="tableView_account_show">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>551</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>551</width>
+        <height>531</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(220, 220, 220);
+gridline-color: rgb(124, 124, 124);
+color: rgb(0, 0, 0);
+alternate-background-color: rgb(255, 244, 124);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QStackedWidget" name="stackedWidget_edit">
     <property name="geometry">
@@ -263,7 +301,7 @@ selection-background-color: rgb(0, 0, 255);</string>
        <cstring>search_cmb_custom</cstring>
       </property>
      </widget>
-     <widget class="QComboBox" name="editAc_cmb_customname_2">
+     <widget class="QComboBox" name="editAc_cmb_JinShouRen">
       <property name="geometry">
        <rect>
         <x>100</x>
@@ -304,7 +342,7 @@ selection-background-color: rgb(0, 0, 255);</string>
        <string notr="true">color: rgb(255, 0, 0);</string>
       </property>
       <property name="text">
-       <string>客户名称：</string>
+       <string>经 手 人：</string>
       </property>
       <property name="buddy">
        <cstring>search_cmb_custom</cstring>
@@ -329,7 +367,7 @@ selection-background-color: rgb(0, 0, 255);</string>
        <cstring>search_cmb_custom</cstring>
       </property>
      </widget>
-     <widget class="QTableWidget" name="tableWidget">
+     <widget class="QTableWidget" name="tableWidget_account_edit">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1223,6 +1261,15 @@ selection-background-color: rgb(0, 0, 255);</string>
     <bool>false</bool>
    </attribute>
    <addaction name="m_sys_user"/>
+   <addaction name="separator"/>
+   <addaction name="m_custom"/>
+   <addaction name="separator"/>
+   <addaction name="m_new_detail"/>
+   <addaction name="m_new_census"/>
+   <addaction name="m_new_pay"/>
+   <addaction name="separator"/>
+   <addaction name="m_sys_backup"/>
+   <addaction name="separator"/>
    <addaction name="m_sys_quit"/>
   </widget>
   <widget class="QStatusBar" name="statusBar">

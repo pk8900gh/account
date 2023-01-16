@@ -105,15 +105,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Form_addCustomType.h.cpp" />
     <ClCompile Include="qsqlite.cpp" />
     <QtRcc Include="mysoft.qrc" />
+    <QtUic Include="addCustomType.ui" />
     <QtUic Include="mysoft.ui" />
     <QtMoc Include="mysoft.h" />
     <ClCompile Include="mysoft.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="Form_addCustomType.h" />
     <ClInclude Include="qsqlite.h" />
+    <ClInclude Include="ui_addCustomType.h" />
     <ClInclude Include="ui_mysoft.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

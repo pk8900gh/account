@@ -8,10 +8,8 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QString dbfilepath = "B:\\C++\\account\\my_account_soft\\database\\data.sqlite3";
-    string s1 = "12345是个数字";
-	//解决乱码问题
-    //QTextCodec* codec = QTextCodec::codecForName("UTF - 8");
-	//QTextCodec::setCodecForLocale(codec);
+    //string s1 = "12345是个数字";
+	//解决乱码问题 文件——》高级保存选项——》   编码(E):    Unicode(UTF - 8带签名) - 代码页65001
     MySoft  w(dbfilepath);
     w.show();
     w.initDB();

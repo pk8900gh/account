@@ -1,4 +1,4 @@
-#include "qsqlite.h"
+ï»¿#include "qsqlite.h"
 
 Qsqlite::Qsqlite(QString db)
 {
@@ -7,15 +7,15 @@ Qsqlite::Qsqlite(QString db)
 Qsqlite::~Qsqlite()
 {
 }
-bool Qsqlite::initDB()
+bool Qsqlite::initDB() //åˆå§‹åŒ–æ•°æ®åº“ï¼Œtrue:æ­£å¸¸æ‰“å¼€ false:æ— æ³•æ‰“å¼€
 {
-	// ¼ì²âÒÑÁ¬½ÓµÄ·½Ê½ - Ä¬ÈÏÁ¬½ÓÃû
+	// æ£€æµ‹å·²è¿æ¥çš„æ–¹å¼ - é»˜è®¤è¿æ¥å
 		//QSqlDatabase::contains(QSqlDatabase::defaultConnection)
 	if (QSqlDatabase::contains("qt_sql_default_connection"))
 		db = QSqlDatabase::database("qt_sql_default_connection");
 	else
 		db = QSqlDatabase::addDatabase("QSQLITE");
-	//¼ì²âÒÑÁ¬½ÓµÄ·½Ê½ - ×Ô¶¨ÒåÁ¬½ÓÃû
+	//æ£€æµ‹å·²è¿æ¥çš„æ–¹å¼ - è‡ªå®šä¹‰è¿æ¥å
 	QFileInfo qf(dbfile);
 	if (!qf.isFile())
 		return false;

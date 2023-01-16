@@ -43,6 +43,9 @@
     <ClCompile Include="qsqlite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Form_addCustomType.h.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ui_mysoft.h">
@@ -51,5 +54,18 @@
     <ClInclude Include="qsqlite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ui_addCustomType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="addCustomType.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Form_addCustomType.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
 </Project>

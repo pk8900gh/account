@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <QSqlDatabase>
 #include <QDebug>
 #include <QSqlQuery>
@@ -15,29 +15,29 @@ public:
 	QSqlError error;
 	Qsqlite(QString dbfile);
 	~Qsqlite();
-	bool initDB();  //³õÊ¼»¯Êı¾İ¿â£¬true:Õı³£´ò¿ª false:ÎŞ·¨´ò¿ª
-	int addUser( QString username, QString password, int isadmin = 0, int autologin = 0); // Ìí¼ÓÓÃ»§£¬³É¹¦·µ»Øid £¬id=-1ÎªÌí¼ÓÊ§°Ü Êı¾İ±í£ºuser 
-	bool editUser(int id, QString username, QString password, int isadmin, int autologin);//ĞŞ¸ÄÓÃ»§ Êı¾İ±í£ºuser 
-	int addUserLimits(int user_id, int create = 0, int  modify = 0, int del = 0, int showTotal = 0, int  print = 0, int census = 0, int pay = 0); //ĞÂÔöÓÃ»§È¨ÏŞ £¬·µ»Øid £¬id=-1ÎªÌí¼ÓÊ§°Ü  id,user_id,create,modify,delete,showTotal,print,census,pay Êı¾İ±í£ºuserLimits
-	bool editUserLimits(int id, int user_id, int create, int  modify, int del, int showTotal, int  print, int census, int pay);  //ĞŞ¸ÄÓÃ»§È¨ÏŞ Êı¾İ±í£ºuserLimits
-	int  addCustomType(QString typeName);// Ìí¼Ó¿Í»§ÀàĞÍ£¬·µ»Øid £¬id=-1ÎªÌí¼ÓÊ§°Ü id,typeName    Êı¾İ±í£ºcustomeType
-	bool editCustomType(int id, QString typeName);//ĞŞ¸Ä¿Í»§ÀàĞÍ   Êı¾İ±í£ºcustomeType
+	bool initDB();  //åˆå§‹åŒ–æ•°æ®åº“ï¼Œtrue:æ­£å¸¸æ‰“å¼€ false:æ— æ³•æ‰“å¼€
+	int addUser( QString username, QString password, int isadmin = 0, int autologin = 0); // æ·»åŠ ç”¨æˆ·ï¼ŒæˆåŠŸè¿”å›id ï¼Œid=-1ä¸ºæ·»åŠ å¤±è´¥ æ•°æ®è¡¨ï¼šuser 
+	bool editUser(int id, QString username, QString password, int isadmin, int autologin);//ä¿®æ”¹ç”¨æˆ· æ•°æ®è¡¨ï¼šuser 
+	int addUserLimits(int user_id, int create = 0, int  modify = 0, int del = 0, int showTotal = 0, int  print = 0, int census = 0, int pay = 0); //æ–°å¢ç”¨æˆ·æƒé™ ï¼Œè¿”å›id ï¼Œid=-1ä¸ºæ·»åŠ å¤±è´¥  id,user_id,create,modify,delete,showTotal,print,census,pay æ•°æ®è¡¨ï¼šuserLimits
+	bool editUserLimits(int id, int user_id, int create, int  modify, int del, int showTotal, int  print, int census, int pay);  //ä¿®æ”¹ç”¨æˆ·æƒé™ æ•°æ®è¡¨ï¼šuserLimits
+	int  addCustomType(QString typeName);// æ·»åŠ å®¢æˆ·ç±»å‹ï¼Œè¿”å›id ï¼Œid=-1ä¸ºæ·»åŠ å¤±è´¥ id,typeName    æ•°æ®è¡¨ï¼šcustomeType
+	bool editCustomType(int id, QString typeName);//ä¿®æ”¹å®¢æˆ·ç±»å‹   æ•°æ®è¡¨ï¼šcustomeType
 	int  addCustom(QString customeName, int QcustomeType_id, QString telephone, QString JianPin, QString pinYin, QString address, QString lastCensusTime, QString lastPayTime, float money, QString remarks);
-	//Ìí¼Ó¿Í»§£¬·µ»Øid £¬id=-1ÎªÌí¼ÓÊ§°Ü id ,customeName,customeType_id,telephone,JianPin,pinYin,address,lastCensusTime,lastPayTime,money,remarks   Êı¾İ±í£ºcustome
+	//æ·»åŠ å®¢æˆ·ï¼Œè¿”å›id ï¼Œid=-1ä¸ºæ·»åŠ å¤±è´¥ id ,customeName,customeType_id,telephone,JianPin,pinYin,address,lastCensusTime,lastPayTime,money,remarks   æ•°æ®è¡¨ï¼šcustome
 	bool editCustom(int id, QString customeName, int QcustomeType_id, QString telephone, QString JianPin, QString pinYin, QString address, QString lastCensusTime, QString lastPayTime, float money, QString remarks);
-	//ĞŞ¸Ä¿Í»§ĞÅÏ¢  Êı¾İ±í£ºcustome
-	int addItemType(QString name, int used = 0);  //Ôö¼Ó¼ÇÕËÃ÷Ï¸ÀàĞÍ  id,name,used  Êı¾İ±í£ºitemType
-	bool editItemType(int id, QString name, int used); //ĞŞ¸Ä¼ÇÕËÃ÷Ï¸ÀàĞÍ  Êı¾İ±í£ºitemType
-	int addItemModel(int ItemType_id, QString ModelName, QString unit, float price, int used = 0); //Ôö¼ÓÃ÷Ï¸¼ÇÕË¹æ¸ñĞÍºÅ  id,ItemType_id,ModelName,unit,price,used Êı¾İ±í£ºitemModel
-	bool editIteModel(int id, int ItemType_id, QString ModelName, QString unit, float price, int used); //ĞŞ¸ÄÃ÷Ï¸¼ÇÕË¹æ¸ñĞÍºÅ Êı¾İ±í£ºitemModel
-	int addUnitDic(int itemType_id,QString unitText,int itemModel_id,int used=0);//ĞÂÔöµ¥Î» id,itemType_id,unitText,itemModel_id,used   Êı¾İ±í£ºunitDic
-	bool editUnitDic(int id, int itemType_id, QString unitText, int itemModel_id, int used); //ĞŞ¸Äµ¥Î» Êı¾İ±í£ºunitDic
-	int addDetailSheet(QString theDate, int custome_id, float money, QString remark, QString sysDate, int census_id = -1, int  pay_id = -1);//ÊÂÎñ´¦Àí»úÖÆ ĞÂÔö¼ÇÕË  id,date,custome_id,money,remark,census_id,pay_id  //Êı¾İ±í£ºdetailSheet
-	bool eidtDetailSheet(int id,QString theDate, int custome_id, float money, QString remark, QString sysDate, int census_id, int  pay_id);//ÊÂÎñ´¦Àí»úÖÆ ĞŞ¸Ä¼ÇÕË  id,date,custome_id,money,remark,census_id,pay_id  //Êı¾İ±í£ºdetailSheet
-	int addCensusSheet(int custome_id,QString censusText,QString censusDate,float censusMoney,QString censusUserName,QString censusRemark);//ÊÂÎñ´¦Àí»úÖÆ ĞÂÔöÍ³¼Æ±¨±í  id,custome_id,censusText,censusDate,censusMoney,censusUserName,censusRemark  //Êı¾İ±í£ºcensusSheet
-	bool editCensusSheet(int id,int custome_id, QString censusText, QString censusDate, float censusMoney, QString censusUserName, QString censusRemark);//ĞŞ¸ÄÍ³¼Æ±¨±í  id,custome_id,censusText,censusDate,censusMoney,censusUserName,censusRemark  //Êı¾İ±í£ºcensusSheet
-	bool delCensusSheet(int id);// ÊÂÎñ´¦Àí»úÖÆ  É¾³ıÍ³¼Æ±¨±í  id,custome_id,censusText,censusDate,censusMoney,censusUserName,censusRemark  //Êı¾İ±í£ºcensusSheet
-	int addPaySheet(int custome_id, int census_id,QString payText,QString payDate,float payMoney,QString payUserName,QString payRemark); ///ÊÂÎñ´¦Àí»úÖÆ ĞÂÔö½áËã±¨±í  id,custome_id,census_id,payText,payDate,payMoney,payUserName,payRemark //Êı¾İ±í£»paySheet
-	int editPaySheet(int id,int custome_id, int census_id, QString payText, QString payDate, float payMoney, QString payUserName, QString payRemark); ///½öĞŞ¸ÄĞÅÏ¢ ĞŞ¸Ä½áËã±¨±í  id,custome_id,census_id,payText,payDate,payMoney,payUserName,payRemark //Êı¾İ±í£»paySheet
-	bool delPaySheet(int id); //É¾³ı½áËã±¨±í ·çÏÕ²Ù×÷ ĞèÒª½øĞĞÈ·ÈÏ
+	//ä¿®æ”¹å®¢æˆ·ä¿¡æ¯  æ•°æ®è¡¨ï¼šcustome
+	int addItemType(QString name, int used = 0);  //å¢åŠ è®°è´¦æ˜ç»†ç±»å‹  id,name,used  æ•°æ®è¡¨ï¼šitemType
+	bool editItemType(int id, QString name, int used); //ä¿®æ”¹è®°è´¦æ˜ç»†ç±»å‹  æ•°æ®è¡¨ï¼šitemType
+	int addItemModel(int ItemType_id, QString ModelName, QString unit, float price, int used = 0); //å¢åŠ æ˜ç»†è®°è´¦è§„æ ¼å‹å·  id,ItemType_id,ModelName,unit,price,used æ•°æ®è¡¨ï¼šitemModel
+	bool editIteModel(int id, int ItemType_id, QString ModelName, QString unit, float price, int used); //ä¿®æ”¹æ˜ç»†è®°è´¦è§„æ ¼å‹å· æ•°æ®è¡¨ï¼šitemModel
+	int addUnitDic(int itemType_id,QString unitText,int itemModel_id,int used=0);//æ–°å¢å•ä½ id,itemType_id,unitText,itemModel_id,used   æ•°æ®è¡¨ï¼šunitDic
+	bool editUnitDic(int id, int itemType_id, QString unitText, int itemModel_id, int used); //ä¿®æ”¹å•ä½ æ•°æ®è¡¨ï¼šunitDic
+	int addDetailSheet(QString theDate, int custome_id, float money, QString remark, QString sysDate, int census_id = -1, int  pay_id = -1);//äº‹åŠ¡å¤„ç†æœºåˆ¶ æ–°å¢è®°è´¦  id,date,custome_id,money,remark,census_id,pay_id  //æ•°æ®è¡¨ï¼šdetailSheet
+	bool eidtDetailSheet(int id,QString theDate, int custome_id, float money, QString remark, QString sysDate, int census_id, int  pay_id);//äº‹åŠ¡å¤„ç†æœºåˆ¶ ä¿®æ”¹è®°è´¦  id,date,custome_id,money,remark,census_id,pay_id  //æ•°æ®è¡¨ï¼šdetailSheet
+	int addCensusSheet(int custome_id,QString censusText,QString censusDate,float censusMoney,QString censusUserName,QString censusRemark);//äº‹åŠ¡å¤„ç†æœºåˆ¶ æ–°å¢ç»Ÿè®¡æŠ¥è¡¨  id,custome_id,censusText,censusDate,censusMoney,censusUserName,censusRemark  //æ•°æ®è¡¨ï¼šcensusSheet
+	bool editCensusSheet(int id,int custome_id, QString censusText, QString censusDate, float censusMoney, QString censusUserName, QString censusRemark);//ä¿®æ”¹ç»Ÿè®¡æŠ¥è¡¨  id,custome_id,censusText,censusDate,censusMoney,censusUserName,censusRemark  //æ•°æ®è¡¨ï¼šcensusSheet
+	bool delCensusSheet(int id);// äº‹åŠ¡å¤„ç†æœºåˆ¶  åˆ é™¤ç»Ÿè®¡æŠ¥è¡¨  id,custome_id,censusText,censusDate,censusMoney,censusUserName,censusRemark  //æ•°æ®è¡¨ï¼šcensusSheet
+	int addPaySheet(int custome_id, int census_id,QString payText,QString payDate,float payMoney,QString payUserName,QString payRemark); ///äº‹åŠ¡å¤„ç†æœºåˆ¶ æ–°å¢ç»“ç®—æŠ¥è¡¨  id,custome_id,census_id,payText,payDate,payMoney,payUserName,payRemark //æ•°æ®è¡¨ï¼›paySheet
+	int editPaySheet(int id,int custome_id, int census_id, QString payText, QString payDate, float payMoney, QString payUserName, QString payRemark); ///ä»…ä¿®æ”¹ä¿¡æ¯ ä¿®æ”¹ç»“ç®—æŠ¥è¡¨  id,custome_id,census_id,payText,payDate,payMoney,payUserName,payRemark //æ•°æ®è¡¨ï¼›paySheet
+	bool delPaySheet(int id); //åˆ é™¤ç»“ç®—æŠ¥è¡¨ é£é™©æ“ä½œ éœ€è¦è¿›è¡Œç¡®è®¤
 };
